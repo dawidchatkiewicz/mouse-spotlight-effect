@@ -1,26 +1,50 @@
 :root {
     --red: rgb(235, 89, 57);
     --cream: rgb(183, 171, 152);
-    --black: rgb(36, 36, 36);;
+    --black: rgb(26, 26, 26);;
 
 }
 
-body {
-    height: 100vh;
-    font-family: 'Bebas Neue';
-}
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0  ;
 }
 
+body:before, body:after {
+    content: "";
+    position: fixed;
+    background: var(--red);
+    left: 0;
+    right: 0;
+    height: 20px;
+}
+body:before {
+    top: 0;
+}
+body:after {
+    bottom: 0;
+}
+body {
+    height: 100vh;
+    font-family: 'Bebas Neue';
+    border-left: 20px solid var(--red);
+    border-right: 20px solid var(--red);  
+}
+
 section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     height: 100vh; 
+    width: 100%;
     padding: 3em;
     background-color: var(--black);
     color: var(--cream);
 }
+
+
 
 section h1 {
     font-size: 5rem;
@@ -34,8 +58,20 @@ section h1 {
     left: 0;
     width: 100%;
 
-    clip-path: circle(200px at var(--x, 50%) var(--y, 50%));
+    clip-path: circle(10px at var(--x, 50%) var(--y, 50%));
     transition: clip-path 100ms;
+
+    /* transform: clip-path 0.5s; */
+}
+
+.overlay:hover {
+   
+    background-color: var(--red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    clip-path: circle(200px at var(--x, 50%) var(--y, 50%));
 }
 
 span {
